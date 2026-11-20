@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今天去哪裡？｜隨機城市探索</title>
+<style>
+:root{--ink:#f7f4ed;--muted:#b9b6ae;--bg:#111312;--lime:#d8ff63;--line:rgba(255,255,255,.14)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans TC",sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;padding:25px 7vw;border-bottom:1px solid var(--line)}
+.logo{font-weight:900;letter-spacing:2px}.logo span{color:var(--lime)}nav{display:flex;gap:26px;color:var(--muted);font-size:14px}nav a{color:inherit;text-decoration:none}
+main{max-width:1180px;margin:auto;padding:70px 7vw 90px}
+.eyebrow{color:var(--lime);letter-spacing:3px;font-size:12px;font-weight:bold}
+h1{font-size:clamp(42px,7vw,82px);line-height:1.02;letter-spacing:-3px;margin:18px 0}
+h1 em{font-style:normal;color:var(--lime)}
+.intro{max-width:570px;color:var(--muted);line-height:1.8;font-size:16px}
+.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;margin-top:48px}
+.panel{border:1px solid var(--line);border-radius:22px;padding:30px;background:#191d1a}
+.panel h2{font-size:19px;margin:0 0 8px}.panel p{color:var(--muted);font-size:14px;line-height:1.7}
+.result{min-height:235px;border-radius:18px;background:linear-gradient(135deg,#d8ff63,#a9d94a);color:#151912;padding:27px;margin-top:22px;display:flex;flex-direction:column;justify-content:space-between}
+.result small{font-weight:bold;letter-spacing:2px}.result strong{font-size:clamp(38px,5vw,60px);line-height:1}
+.result span{font-size:14px;font-weight:bold}
+button{border:0;border-radius:999px;padding:15px 23px;background:var(--lime);color:#151912;font-weight:800;font-size:15px;cursor:pointer;transition:.2s}
+button:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.secondary{background:transparent;border:1px solid var(--line);color:var(--ink);margin-left:8px}
+.tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.tag{border:1px solid var(--line);padding:9px 13px;border-radius:999px;color:var(--muted);font-size:13px;cursor:pointer}
+.tag.active{background:var(--lime);color:#151912;border-color:var(--lime);font-weight:bold}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.city{border-top:1px solid var(--line);padding-top:17px}.city b{font-size:18px}.city p{margin:7px 0 0;font-size:13px}
+footer{border-top:1px solid var(--line);padding:25px 7vw;color:var(--muted);font-size:12px;display:flex;justify-content:space-between}
+@media(max-width:760px){header{padding:20px 6vw}nav{gap:12px;font-size:12px}main{padding:55px 6vw}.layout{grid-template-columns:1fr}.cards{grid-template-columns:1fr}footer{padding:22px 6vw;gap:12px;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="logo">WANDER<span> / </span>LAB</div><nav><a href="#discover">探索</a><a href="#ideas">靈感</a><a href="#about">關於</a></nav></header>
+<main>
+  <div class="eyebrow">A LITTLE ADVENTURE STARTS HERE</div>
+  <h1>別想太多，<br><em>出去走走。</em></h1>
+  <p class="intro">生活有時候需要一點隨機。選一種旅行心情，讓這個小小的城市探索器替你決定下一站。</p>
+  <section class="layout" id="discover">
+    <div class="panel">
+      <h2>今天想要什麼感覺？</h2>
+      <p>選擇一種氛圍，再抽出你的目的地。</p>
+      <div class="tags" id="tags">
+        <div class="tag active" data-kind="all">隨機驚喜</div>
+        <div class="tag" data-kind="food">美食優先</div>
+        <div class="tag" data-kind="nature">自然放空</div>
+        <div class="tag" data-kind="culture">文化探索</div>
+        <div class="tag" data-kind="night">夜晚出發</div>
+      </div>
+      <div class="result" aria-live="polite">
+        <small id="resultLabel">YOUR NEXT DESTINATION</small>
+        <strong id="destination">京都・日本</strong>
+        <span id="description">巷弄散步、老屋咖啡與慢步調的一天。</span>
+      </div>
+      <div style="margin-top:22px">
+        <button id="draw">幫我決定目的地 ↗</button>
+        <button class="secondary" id="again">重設</button>
+      </div>
+    </div>
+    <div class="panel" id="ideas">
+      <h2>旅行不一定要很遠</h2>
+      <p>有時候換一條路回家，就能遇見平常沒注意到的風景。</p>
+      <div class="cards">
+        <div class="city"><b>01 / 慢遊</b><p>找間咖啡店，坐下來觀察城市。</p></div>
+        <div class="city"><b>02 / 探索</b><p>走進沒去過的街區，隨意逛逛。</p></div>
+        <div class="city"><b>03 / 夜行</b><p>看看城市入夜後的另一種樣子。</p></div>
+      </div>
+      <div style="margin-top:35px;padding:22px;border:1px solid var(--line);border-radius:16px">
+        <div class="eyebrow">SMALL REMINDER</div>
+        <h2 style="font-size:25px;margin-top:12px">不需要每趟旅程<br>都有偉大的理由。</h2>
+        <p style="margin-bottom:0">好奇心，就是出發最好的理由。</p>
+      </div>
+    </div>
+  </section>
+  <section id="about" style="margin-top:55px">
+    <div class="eyebrow">THE WORLD IS STILL BIG</div>
+    <h2 style="font-size:30px">把日常，過成一場小冒險。</h2>
+    <p class="intro">這是一個隨機城市靈感網站。按下抽選按鈕，看看下一個目的地會是哪裡。</p>
+  </section>
+</main>
+<footer><span>© 2026 WANDER / LAB</span><span>MADE FOR THE CURIOUS.</span></footer>
+<script>
+const places=[
+ {name:"京都・日本",kind:"culture",desc:"巷弄散步、老屋咖啡與慢步調的一天。"},
+ {name:"台南・台灣",kind:"food",desc:"從巷口小吃開始，展開一場美食散步。"},
+ {name:"沖繩・日本",kind:"nature",desc:"海風、藍色海岸，讓步調慢下來。"},
+ {name:"首爾・韓國",kind:"night",desc:"夜晚街頭、音樂與熱鬧的城市節奏。"},
+ {name:"花蓮・台灣",kind:"nature",desc:"山海之間，留一點時間給自己。"},
+ {name:"曼谷・泰國",kind:"food",desc:"市場香氣、街頭美食與熱鬧街景。"},
+ {name:"台北・台灣",kind:"night",desc:"夜市、展演與永遠逛不完的城市角落。"},
+ {name:"福岡・日本",kind:"food",desc:"拉麵、屋台與舒服自在的城市旅行。"},
+ {name:"布拉格・捷克",kind:"culture",desc:"走進古老街道，感受不同時代的風景。"}
+];
+let selected="all";
+const tags=document.querySelectorAll(".tag");
+tags.forEach(tag=>tag.addEventListener("click",()=>{
+ tags.forEach(t=>t.classList.remove("active"));tag.classList.add("active");selected=tag.dataset.kind;
+}));
+document.getElementById("draw").addEventListener("click",()=>{
+ let choices=selected==="all"?places:places.filter(p=>p.kind===selected);
+ const place=choices[Math.floor(Math.random()*choices.length)];
+ document.getElementById("destination").textContent=place.name;
+ document.getElementById("description").textContent=place.desc;
+ document.getElementById("resultLabel").textContent="YOUR NEXT DESTINATION";
+});
+document.getElementById("again").addEventListener("click",()=>{
+ selected="all";tags.forEach(t=>t.classList.toggle("active",t.dataset.kind==="all"));
+ document.getElementById("destination").textContent="京都・日本";
+ document.getElementById("description").textContent="巷弄散步、老屋咖啡與慢步調的一天。";
+});
+</script>
+</body>
+</html>
