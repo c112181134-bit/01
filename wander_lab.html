@@ -2,62 +2,400 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red Bull Dance Your Style</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RED BULL DANCE YOUR STYLE | 街舞無極限</title>
 
-    <style>
-        body {
-            color: white;
-            background-color: #171717;
-            font-family: Arial, sans-serif;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-        h1 {
-            color: #ff3333;
-            font-size: 36px;
-            font-weight: bold;
-            text-align: center;
-        }
+body {
+    color: white;
+    background-color: #080a12;
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
+    line-height: 1.8;
+}
 
-        .notice {
-            background-color: #333333;
-            color: #ffd700;
-            padding: 15px;
-            border-radius: 10px;
-        }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: rgba(5, 7, 15, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #292c3a;
+}
 
-        p {
-            line-height: 1.8;
-        }
-    </style>
+.logo {
+    color: #ff1744;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff1744;
+}
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    padding: 80px 10%;
+    background:
+    linear-gradient(90deg, rgba(5,7,18,0.95), rgba(5,7,18,0.25)),
+    url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1800&q=85");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h1 {
+    color: #ffffff;
+    font-size: clamp(48px, 8vw, 90px);
+    font-weight: 900;
+    text-align: left;
+    line-height: 1.05;
+    text-shadow: 4px 4px 15px #000;
+}
+
+.hero h1 span {
+    color: #ff1744;
+}
+
+.hero p {
+    font-size: 20px;
+    margin: 25px 0;
+    color: #dddddd;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 32px;
+    color: white;
+    background: #ff1744;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ffffff;
+    color: #ff1744;
+    transform: translateY(-4px);
+}
+
+section {
+    padding: 90px 10%;
+}
+
+.section-title {
+    font-size: 42px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.section-title span {
+    color: #ff1744;
+}
+
+.subtitle {
+    color: #999;
+    margin-bottom: 45px;
+}
+
+.about {
+    background: #101321;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.about-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.notice {
+    background: #202538;
+    border-left: 5px solid #ff1744;
+    padding: 22px;
+    margin-top: 25px;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.battle {
+    background: #080a12;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #151a2b;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+    border: 1px solid #292e43;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #ff1744;
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card h3 {
+    color: #ff1744;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.styles {
+    background: linear-gradient(135deg, #11182b, #080a12);
+}
+
+.style-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.style-item {
+    padding: 30px 15px;
+    background: #1b2238;
+    text-align: center;
+    border-radius: 10px;
+    border-bottom: 3px solid #ff1744;
+    transition: 0.3s;
+}
+
+.style-item:hover {
+    background: #ff1744;
+    transform: scale(1.04);
+}
+
+.style-item h3 {
+    font-size: 22px;
+}
+
+.world {
+    text-align: center;
+    background:
+    linear-gradient(rgba(5,7,18,0.85), rgba(5,7,18,0.9)),
+    url("https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1800&q=85");
+    background-size: cover;
+    background-position: center;
+}
+
+.world h2 {
+    font-size: 45px;
+}
+
+.world p {
+    max-width: 700px;
+    margin: 20px auto 30px;
+}
+
+footer {
+    text-align: center;
+    padding: 35px;
+    background: #05060b;
+    color: #888;
+    border-top: 1px solid #292c3a;
+}
+
+footer span {
+    color: #ff1744;
+}
+
+@media (max-width: 800px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 13px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .style-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    section {
+        padding: 60px 7%;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <h1>Red Bull Dance Your Style</h1>
+<nav>
+    <div class="logo">RED BULL DANCE</div>
+    <div>
+        <a href="#home">首頁</a>
+        <a href="#about">關於比賽</a>
+        <a href="#battle">比賽特色</a>
+        <a href="#styles">舞蹈風格</a>
+        <a href="#world">世界舞台</a>
+    </div>
+</nav>
 
-    <h2>關於街舞</h2>
+<header class="hero" id="home">
+    <div class="hero-content">
+        <h1> DANCE<br>YOUR <span>STYLE.</span></h1>
+        <p>ONE MUSIC. ONE DANCE. YOUR STYLE.</p>
+        <p>沒有固定套路，只有屬於自己的舞蹈態度。</p>
+        <a href="#about" class="btn">探索街舞世界 →</a>
+    </div>
+</header>
 
+<section class="about" id="about">
+    <div class="about-content">
+        <div>
+            <h2 class="section-title">WHAT IS <span>DANCE YOUR STYLE?</span></h2>
+            <p class="subtitle">不只是比賽，更是一種街舞文化。</p>
+            <p>
+                Red Bull Dance Your Style 是一項全球性的街舞即興舞蹈賽事。
+                不同舞風的舞者站上舞台，隨著隨機播放的音樂展現自己的舞蹈實力。
+            </p>
+            <p>
+                這項比賽最特別的地方，就是觀眾也能參與決定勝負。
+                舞者不只需要技巧，更需要創意、音樂性與臨場反應。
+            </p>
+            <div class="notice">
+                <strong>THIS IS YOUR MOMENT.</strong><br>
+                用自己的風格，讓全世界看見你的舞蹈。
+            </div>
+        </div>
+
+        <img class="about-image"
+        src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=1000&q=85"
+        alt="街舞表演">
+    </div>
+</section>
+
+<section class="battle" id="battle">
+    <h2 class="section-title">THE <span>BATTLE</span></h2>
+    <p class="subtitle">比賽的三大特色</p>
+
+    <div class="cards">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=85" alt="即興舞蹈">
+            <div class="card-content">
+                <h3>01 / FREESTYLE</h3>
+                <p>隨機播放音樂，舞者必須即時反應，展現最真實的舞蹈能力。</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=800&q=85" alt="舞台">
+            <div class="card-content">
+                <h3>02 / THE STAGE</h3>
+                <p>來自不同國家與文化的舞者，在世界舞台上進行精彩對決。</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=800&q=85" alt="觀眾">
+            <div class="card-content">
+                <h3>03 / THE CROWD</h3>
+                <p>觀眾參與投票，舞者必須用自己的表演贏得現場的掌聲。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="styles" id="styles">
+    <h2 class="section-title">FIND YOUR <span>STYLE</span></h2>
+    <p class="subtitle">每一種舞風，都有自己的靈魂。</p>
+
+    <div class="style-list">
+        <div class="style-item">
+            <h3>HIP-HOP</h3>
+            <p>節奏與態度</p>
+        </div>
+
+        <div class="style-item">
+            <h3>POPPING</h3>
+            <p>肌肉控制</p>
+        </div>
+
+        <div class="style-item">
+            <h3>LOCKING</h3>
+            <p>活力與律動</p>
+        </div>
+
+        <div class="style-item">
+            <h3>BREAKING</h3>
+            <p>力量與技巧</p>
+        </div>
+    </div>
+</section>
+
+<section class="world" id="world">
+    <h2>ONE WORLD.<br><span style="color:#ff1744;">INFINITE STYLES.</span></h2>
     <p>
-        街舞是一種充滿自由與創意的舞蹈文化，
-        舞者可以透過音樂、節奏和自己的風格展現實力。
+        街舞沒有國界，音樂也不需要翻譯。
+        從不同城市出發，讓每一位舞者都有機會站上世界舞台。
     </p>
+    <a href="https://www.redbull.com/" target="_blank" rel="noopener noreferrer" class="btn">
+        EXPLORE RED BULL →
+    </a>
+</section>
 
-    <h2>比賽介紹</h2>
-
-    <p class="notice">
-        Red Bull Dance Your Style 是一項街舞比賽，
-        舞者需要隨著隨機播放的音樂即興表演，
-        展現自己的舞蹈實力與個人特色。
-    </p>
-
-    <h2>我的網站目標</h2>
-
-    <p>
-        希望透過這個網站介紹街舞文化、比賽資訊，
-        以及不同舞者的特色與精彩表演。
-    </p>
+<footer>
+    <p><span>RED BULL DANCE YOUR STYLE</span></p>
+    <p>街舞是一種態度，風格由自己決定。</p>
+    <p>© 2026 Street Dance Project. Student Website.</p>
+</footer>
 
 </body>
 </html>
